@@ -1,5 +1,5 @@
 # dweessenger
-[![PyPI version](https://badge.fury.io/py/dweessenger.svg)](https://badge.fury.io/py/dweessenger) 
+[![PyPI version](https://badge.fury.io/py/dweessenger.svg)](https://badge.fury.io/py/dweessenger) [![Downloads](https://pepy.tech/badge/dweessenger)](https://pepy.tech/project/dweessenger)
 
 A simple python package for messaging through free dweet service.
 
