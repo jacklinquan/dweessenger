@@ -25,12 +25,12 @@ u'YOUR MESSAGE'
 """
 
 # Project version
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __all__ = ['Dweessenger', 'DweessengerError']
 
 from datetime import datetime
 
-from cryptodweet import CryptoDweet
+from cryptodweet import CryptoDweet, from_bytes
 
 UTC_TIME_STRING_FORMAT = '%Y-%m-%dT%H:%M:%S.%fZ'
 
@@ -78,7 +78,9 @@ class Dweessenger(object):
         else:
             self._aes_cbc_iv = aes_cbc_iv
         self._latest_send_message_time = None
+        self._latest_send_message = None
         self._latest_get_message_time = None
+        self._latest_get_message = None
         
     @property
     def latest_send_message_time(self):
@@ -86,9 +88,19 @@ class Dweessenger(object):
         return self._latest_send_message_time
     
     @property
+    def latest_send_message(self):
+        """The latest send message."""
+        return self._latest_send_message
+    
+    @property
     def latest_get_message_time(self):
         """The latest get message time."""
         return self._latest_get_message_time
+    
+    @property
+    def latest_get_message(self):
+        """The latest get message."""
+        return self._latest_get_message
     
     def send_message(self, message):
         """Send a message.
@@ -110,6 +122,7 @@ class Dweessenger(object):
             raise DweessengerError(str(ex))
         
         self._latest_send_message_time = utc_datetime
+        self._latest_send_message = from_bytes(message)
         return response
         
     def get_latest_message(self):
@@ -142,7 +155,8 @@ class Dweessenger(object):
             )
         
         self._latest_get_message_time = sent_time
-        return message
+        self._latest_get_message = message
+        return self._latest_get_message
 
     def get_new_message(self):
         """Get the new message.

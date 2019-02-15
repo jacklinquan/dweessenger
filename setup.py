@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="dweessenger",
-    version="0.1.0",
+    version="0.1.1",
     description="A simple python package for messaging through free dweet " + \
         "service.",
     long_description="https://github.com/jacklinquan/dweessenger",
