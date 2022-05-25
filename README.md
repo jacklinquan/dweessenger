@@ -5,7 +5,7 @@ A simple python package for messaging through free dweet service.
 
 Dweet is a simple machine-to-machine (M2M) service from https://dweet.io/ .
 Messages are encrypted with AES CBC mode.
-Only bytes and str types are supported.
+Only str type is supported.
 
 Please consider [![Paypal Donate](https://github.com/jacklinquan/images/blob/master/paypal_donate_button_200x80.png)](https://www.paypal.me/jacklinquan) to support me.
 
